@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterutilitaire/utils/utils1.dart';
+import 'package:flutterutilitaire/utils/utils3.dart';
+import 'package:flutterutilitaire/utils/utils4.dart';
 
 void main() {
   runApp(MyApp());
@@ -68,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                print("gogo");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => UtilFile()));
               },
               child: Container(
                 child: Center(
@@ -100,45 +104,143 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.teal[100],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Ddn()));
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 3"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Promotion()));
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 4"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                print("");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 5"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                print("");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 6"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                print("");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 7"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                print("");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 8"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                print("");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 9"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Sound of screams but the'),
-              color: Colors.teal[300],
+            GestureDetector(
+              onTap: () {
+                print("");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 10"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
           ],
         ));
