@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -27,39 +28,119 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text('Drawer Header'),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+              ),
+              ListTile(
+                title: Text('Item 1'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('Item 2'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
+        body: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            GestureDetector(
+              onTap: () {
+                print("gogo");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 1"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            GestureDetector(
+              onTap: () {
+                print("");
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.ac_unit),
+                      Text("Utilitaire 2"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Sound of screams but the'),
+              color: Colors.teal[300],
             ),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-    );
+        ));
   }
 }
