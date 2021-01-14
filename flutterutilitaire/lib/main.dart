@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutterutilitaire/utils/utils1.dart';
+import 'package:flutterutilitaire/utils/utils11.dart';
 import 'package:flutterutilitaire/utils/utils3.dart';
 import 'package:flutterutilitaire/utils/utils4.dart';
+import 'package:flutterutilitaire/utils/utils5.dart';
+import 'package:flutterutilitaire/utils/utils6.dart';
+import 'package:flutterutilitaire/utils/utils7.dart';
+import 'package:flutterutilitaire/utils/utils8.dart';
+import 'package:flutterutilitaire/utils/utils8t.dart';
+import 'package:flutterutilitaire/utils/utils1.dart';
+
+import 'utils/utils8A.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,11 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Utilitaire',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Utilitaires'),
     );
   }
 }
@@ -31,6 +39,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int tmp = 3;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,15 +57,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ListTile(
-                title: Text('Item 1'),
+                title: Text('Liste'),
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    tmp = 2;
+                  });
                 },
               ),
               ListTile(
-                title: Text('Item 2'),
+                title: Text('Card'),
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    tmp = 1;
+                  });
+                },
+              ),
+              ListTile(
+                title: Text('Grid'),
+                onTap: () {
+                  setState(() {
+                    tmp = 3;
+                  });
                 },
               ),
             ],
@@ -67,37 +88,21 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(20),
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          crossAxisCount: 2,
+          crossAxisCount: tmp,
           children: <Widget>[
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => UtilFile()));
+                    MaterialPageRoute(builder: (context) => UtilFile2()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 1"),
-                    ],
-                  ),
-                ),
-                color: Colors.teal[100],
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                print("");
-              },
-              child: Container(
-                child: Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 2"),
+                      Icon(Icons.file_upload, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 1 : Convertisseur de taille de fichier"),
                     ],
                   ),
                 ),
@@ -107,15 +112,16 @@ class _MyHomePageState extends State<MyHomePage> {
             GestureDetector(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Ddn()));
+                    context, MaterialPageRoute(builder: (context) => Dnd2()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 3"),
+                      Icon(Icons.date_range, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 2 : Connaitre mon âge"),
                     ],
                   ),
                 ),
@@ -132,8 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 4"),
+                      Icon(Icons.calculate, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 3 : Calcul de promotion"),
                     ],
                   ),
                 ),
@@ -142,15 +149,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                print("");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Diff2Date()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 5"),
+                      Icon(Icons.timer, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 4 : Temps écoulé entre deux dates"),
                     ],
                   ),
                 ),
@@ -159,15 +168,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                print("");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ConvertDistance()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 6"),
+                      Icon(Icons.location_city_sharp, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 5 : Convertisseur de distance"),
                     ],
                   ),
                 ),
@@ -176,15 +187,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                print("");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ConvertNum()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 7"),
+                      Icon(Icons.confirmation_number, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 6 : Convertisseur de valeur numérique"),
                     ],
                   ),
                 ),
@@ -193,15 +206,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                print("");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => UtilFile8()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 8"),
+                      Icon(Icons.crop_square, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 7 : Convertisseur D'aires"),
                     ],
                   ),
                 ),
@@ -210,15 +225,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                print("");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TemperatureCalcul()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 9"),
+                      Icon(Icons.thermostat_outlined, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 8 : Convertisseur de température"),
                     ],
                   ),
                 ),
@@ -227,15 +246,40 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                print("");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Dectoroman()));
               },
               child: Container(
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(Icons.ac_unit),
-                      Text("Utilitaire 10"),
+                      Icon(
+                        Icons.book,
+                        size: 40,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                          "Utilitaire 9 : Convertisseur décimal en chiffre Romain"),
+                    ],
+                  ),
+                ),
+                color: Colors.teal[100],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Audio()));
+              },
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.surround_sound, size: 40),
+                      SizedBox(height: 10),
+                      Text("Utilitaire 10 : Lecteur de musique"),
                     ],
                   ),
                 ),

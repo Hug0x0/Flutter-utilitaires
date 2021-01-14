@@ -9,20 +9,8 @@ class Promotion extends StatefulWidget {
 class _PromotionState extends State<Promotion> {
   double prix, economie, prixFinal, pourcentage;
 
-  String _final, result = "";
-
-  void _calculPromo() {
-    //Prix final
-    prixFinal = prix * (1 - (pourcentage / 100));
-
-    //la somme économiser
-    economie = prix * (pourcentage / 100);
-    //Juste 2 chiffres après la virgule
-    _final = prixFinal.toStringAsFixed(2);
-
-    result = "Vous devez payer : $_final € et vous avez économisé $economie €";
-    print(result);
-  }
+  String _final;
+  String _result = "";
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +50,24 @@ class _PromotionState extends State<Promotion> {
               icon: Icon(Icons.account_balance_wallet_outlined),
               onPressed: _calculPromo,
             ),
-            Text("$result"),
+            Text(_result),
           ],
         ),
       ),
     );
+  }
+
+  void _calculPromo() {
+    //Prix final
+    prixFinal = prix * (1 - (pourcentage / 100));
+    //la somme économiser
+    economie = prix * (pourcentage / 100);
+    //Juste 2 chiffres après la virgule
+    _final = prixFinal.toStringAsFixed(2);
+    setState(() {
+      _result =
+          "Vous devez payer : $_final € et vous avez économisé $economie €";
+      print(_result);
+    });
   }
 }
