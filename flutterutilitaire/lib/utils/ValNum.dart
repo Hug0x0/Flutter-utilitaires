@@ -69,23 +69,30 @@ class _ConvertNumState extends State<ConvertNum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text("Numerical convert page"),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text(
+          "Convertisseur de valeur numérique",
+          style: TextStyle(
+            fontFamily: 'Avenir',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.green,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           DropdownButton<String>(
             value: dropdownValue,
-            icon: Icon(Icons.arrow_upward, color: Colors.green),
+            icon: Icon(Icons.arrow_downward, color: Colors.black),
             iconSize: 30,
             elevation: 16,
-            style: TextStyle(color: Colors.green, fontSize: 25),
+            style: TextStyle(color: Colors.black, fontSize: 25),
             underline: Container(
               height: 4,
-              color: Colors.deepPurpleAccent,
+              color: Colors.grey,
             ),
             onChanged: (String newValue) {
               setState(() {
@@ -104,15 +111,15 @@ class _ConvertNumState extends State<ConvertNum> {
             style: TextStyle(color: Colors.green),
             decoration: InputDecoration(
                 hintText: "Mettez votre valeur",
-                labelText: "Firs Input",
-                labelStyle: TextStyle(color: Colors.deepPurpleAccent),
+                labelText: "Valeur 1",
+                labelStyle: TextStyle(color: Colors.black),
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                  color: Colors.deepPurpleAccent,
+                  color: Colors.black,
                 )),
                 focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                  color: Colors.green,
+                  color: Colors.black,
                 ))),
             controller: _controller,
             cursorColor: Colors.green,
@@ -239,24 +246,18 @@ class _ConvertNumState extends State<ConvertNum> {
               });
             },
           ),
-          /*
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text("Resultat : ${_controller.text} en $dropdownValue", style: TextStyle(color: Colors.green),),
-          ),
-
-           */
+          SizedBox(height: 20),
 
           //deuxiéme drop
           DropdownButton<String>(
             value: dropdownValue2,
-            icon: Icon(Icons.arrow_downward, color: Colors.green),
+            icon: Icon(Icons.arrow_downward, color: Colors.black),
             iconSize: 30,
             elevation: 16,
-            style: TextStyle(color: Colors.green, fontSize: 25),
+            style: TextStyle(color: Colors.black, fontSize: 25),
             underline: Container(
               height: 4,
-              color: Colors.deepPurpleAccent,
+              color: Colors.grey,
             ),
             onChanged: (String newValue2) {
               setState(() {
@@ -272,18 +273,18 @@ class _ConvertNumState extends State<ConvertNum> {
             }).toList(),
           ),
           TextField(
-            style: TextStyle(color: Colors.green),
+            style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
                 hintText: "Mettez votre valeur",
-                labelText: "Second Input",
-                labelStyle: TextStyle(color: Colors.deepPurpleAccent),
+                labelText: "Valeur 2",
+                labelStyle: TextStyle(color: Colors.black),
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                  color: Colors.deepPurpleAccent,
+                  color: Colors.black,
                 )),
                 focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                  color: Colors.green,
+                  color: Colors.black,
                 ))),
             controller: _controller2,
             onChanged: (value2) {

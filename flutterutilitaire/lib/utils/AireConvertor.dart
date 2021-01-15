@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class UtilFile8 extends StatefulWidget {
   @override
@@ -17,7 +16,7 @@ class _UtilFileState extends State<UtilFile8> {
   var contenuDeuxiemeChamps = TextEditingController();
   var contenuPremierChamps = TextEditingController();
 
-  void TestpremiereValeur() {
+  void testPremiereValeur() {
     if (choixDeLaSuperficie2 == 'Centimètre carré') {
       if (choixDeLaSuperficie1 == 'Centimètre carré') {
         modifSuperficie2 = deuxiemeValeur;
@@ -86,7 +85,7 @@ class _UtilFileState extends State<UtilFile8> {
     }
   }
 
-  void TestdeuxiemeValeur() {
+  void testdeuxiemeValeur() {
     if (choixDeLaSuperficie1 == 'Centimètre carré') {
       if (choixDeLaSuperficie2 == 'Centimètre carré') {
         modifSuperficie1 = premiereValeur;
@@ -175,18 +174,26 @@ class _UtilFileState extends State<UtilFile8> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Utilitaire 2"),
+        backgroundColor: Colors.black,
+        title: Text(
+          "Convertisseur d'aires",
+          style: TextStyle(
+            fontFamily: 'Avenir',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
               Widget>[
-        // Premier Type
+        // Première Aire
         DropdownButton<String>(
             value: choixDeLaSuperficie1,
             onChanged: (String newValue) {
               setState(() {
                 choixDeLaSuperficie1 = newValue;
-                TestpremiereValeur();
+                testPremiereValeur();
               });
             },
             items: <String>[
@@ -198,33 +205,45 @@ class _UtilFileState extends State<UtilFile8> {
             ].map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(value: value, child: Text(value));
             }).toList()),
-
+        SizedBox(height: 20),
         //Premier champs rempli
-        TextField(
-          controller: contenuPremierChamps,
-          obscureText: false,
-          decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Valeur 1',
-              hintText: '$modifSuperficie2'),
-          onChanged: (valeurDuSecondChamps) {
-            setState(() {
-              premiereValeur = double.parse(valeurDuSecondChamps);
-              TestdeuxiemeValeur();
-              if (contenuDeuxiemeChamps.text.isNotEmpty) {
-                contenuDeuxiemeChamps.clear();
-              }
-            });
-          },
+        Container(
+          width: 250,
+          child: TextField(
+            decoration: InputDecoration(
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              border: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              labelText: "Valeur 1",
+              hintText: '$modifSuperficie2',
+              labelStyle: TextStyle(color: Colors.black),
+            ),
+            controller: contenuPremierChamps,
+            onChanged: (valeurDuSecondChamps) {
+              setState(() {
+                premiereValeur = double.parse(valeurDuSecondChamps);
+                testdeuxiemeValeur();
+                if (contenuDeuxiemeChamps.text.isNotEmpty) {
+                  contenuDeuxiemeChamps.clear();
+                }
+              });
+            },
+          ),
         ),
-
-        // Deuxieme Type
+        SizedBox(height: 20),
+        // Deuxieme Aire
         DropdownButton<String>(
             value: choixDeLaSuperficie2,
             onChanged: (String newValue) {
               setState(() {
                 choixDeLaSuperficie2 = newValue;
-                TestdeuxiemeValeur();
+                testdeuxiemeValeur();
               });
             },
             items: <String>[
@@ -236,24 +255,36 @@ class _UtilFileState extends State<UtilFile8> {
             ].map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(value: value, child: Text(value));
             }).toList()),
-
+        SizedBox(height: 20),
         //Deuxième champs rempli
-        TextField(
-          controller: contenuDeuxiemeChamps,
-          obscureText: false,
-          decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Valeur 2',
-              hintText: '$modifSuperficie1'),
-          onChanged: (valeurDuPremierChamps) {
-            setState(() {
-              deuxiemeValeur = double.parse(valeurDuPremierChamps);
-              TestpremiereValeur();
-              if (contenuPremierChamps.text.isNotEmpty) {
-                contenuPremierChamps.clear();
-              }
-            });
-          },
+        Container(
+          width: 250,
+          child: TextField(
+            decoration: InputDecoration(
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              border: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              labelText: "Valeur 2",
+              hintText: '$modifSuperficie1',
+              labelStyle: TextStyle(color: Colors.black),
+            ),
+            controller: contenuDeuxiemeChamps,
+            onChanged: (valeurDuPremierChamps) {
+              setState(() {
+                deuxiemeValeur = double.parse(valeurDuPremierChamps);
+                testPremiereValeur();
+                if (contenuPremierChamps.text.isNotEmpty) {
+                  contenuPremierChamps.clear();
+                }
+              });
+            },
+          ),
         ),
       ])),
     );

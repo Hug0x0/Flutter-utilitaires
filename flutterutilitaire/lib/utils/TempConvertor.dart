@@ -155,51 +155,29 @@ class _TemperatureCalculState extends State<TemperatureCalcul> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Conversion Temperature"),
+        backgroundColor: Colors.black,
+        title: Text(
+          "Convertisseur de température",
+          style: TextStyle(
+            fontFamily: 'Avenir',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              controller: _controller1,
-              onChanged: (String inputValeurTemp) {
-                setState(() {
-                  modification2 = true;
-                  modification1 = false;
-                  //Celsius
-                  if (temp1 == 0) {
-                    _celsius = int.tryParse(inputValeurTemp);
-                    conversion();
-
-                    // Fahrenheit
-                  } else if (temp1 == 1) {
-                    _fahrenheit = int.tryParse(inputValeurTemp);
-
-                    conversion();
-
-                    // Kelvin
-                  } else if (temp1 == 2) {
-                    _kelvin = int.tryParse(inputValeurTemp);
-                    conversion();
-                  }
-
-                  // Mettre peut être un boolean
-                });
-              },
-              decoration: InputDecoration(labelText: 'Première valeur'),
-            ),
-
             DropdownButton<String>(
               value: valueTemp1,
               icon: Icon(Icons.arrow_downward),
               iconSize: 24,
               elevation: 16,
-              style: TextStyle(color: Colors.deepPurple),
+              style: TextStyle(color: Colors.black),
               underline: Container(
                 height: 2,
-                color: Colors.deepPurpleAccent,
+                color: Colors.black,
               ),
               onChanged: (String newValue) {
                 setState(() {
@@ -246,47 +224,61 @@ class _TemperatureCalculState extends State<TemperatureCalcul> {
                 );
               }).toList(),
             ),
+            SizedBox(height: 20),
+            Container(
+              width: 250,
+              child: TextField(
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    labelText: "Première valeur",
+                    labelStyle: TextStyle(color: Colors.black),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.black,
+                    )),
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.black,
+                    ))),
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                controller: _controller1,
+                onChanged: (String inputValeurTemp) {
+                  setState(() {
+                    modification2 = true;
+                    modification1 = false;
+                    //Celsius
+                    if (temp1 == 0) {
+                      _celsius = int.tryParse(inputValeurTemp);
+                      conversion();
 
-            TextField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              controller: _controller2,
-              onChanged: (String inputValeurTemp) {
-                setState(() {
-                  modification1 = true;
-                  modification2 = false;
+                      // Fahrenheit
+                    } else if (temp1 == 1) {
+                      _fahrenheit = int.tryParse(inputValeurTemp);
 
-                  //Celsius
-                  if (temp2 == 0) {
-                    _celsius = int.tryParse(inputValeurTemp);
-                    conversion();
-                  }
-                  // Fahrenheit
-                  else if (temp2 == 1) {
-                    _fahrenheit = int.tryParse(inputValeurTemp);
-                    conversion();
-                  }
+                      conversion();
 
-                  // Kelvin
-                  else if (temp2 == 2) {
-                    _kelvin = int.tryParse(inputValeurTemp);
-                    conversion();
-                  }
-                });
-              },
-              decoration: InputDecoration(labelText: "Deuxième valeur"),
+                      // Kelvin
+                    } else if (temp1 == 2) {
+                      _kelvin = int.tryParse(inputValeurTemp);
+                      conversion();
+                    }
+
+                    // Mettre peut être un boolean
+                  });
+                },
+              ),
             ),
-
+            SizedBox(height: 20),
             // Deuxième drop downbutton
-
             DropdownButton<String>(
               value: valueTemp2,
               icon: Icon(Icons.arrow_downward),
               iconSize: 24,
               elevation: 16,
-              style: TextStyle(color: Colors.deepPurple),
+              style: TextStyle(color: Colors.black),
               underline: Container(
                 height: 2,
-                color: Colors.deepPurpleAccent,
+                color: Colors.black,
               ),
               onChanged: (String newValue) {
                 setState(() {
@@ -333,10 +325,54 @@ class _TemperatureCalculState extends State<TemperatureCalcul> {
                 );
               }).toList(),
             ),
-            Text("Base C= $_celsius K=$_kelvin F=$_fahrenheit \n"
-                "Resultat c=$_celsiusR K=$_kelvinR F=$_fahrenheitR \n"
-                "Modification 1 = $modification1 \n"
-                "Modification 2 = $modification2 \n"),
+            SizedBox(height: 20),
+            Container(
+              width: 250,
+              child: TextField(
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    labelText: "Deuxième valeur",
+                    labelStyle: TextStyle(color: Colors.black),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.black,
+                    )),
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.black,
+                    ))),
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                controller: _controller2,
+                onChanged: (String inputValeurTemp) {
+                  setState(() {
+                    modification1 = true;
+                    modification2 = false;
+
+                    //Celsius
+                    if (temp2 == 0) {
+                      _celsius = int.tryParse(inputValeurTemp);
+                      conversion();
+                    }
+                    // Fahrenheit
+                    else if (temp2 == 1) {
+                      _fahrenheit = int.tryParse(inputValeurTemp);
+                      conversion();
+                    }
+
+                    // Kelvin
+                    else if (temp2 == 2) {
+                      _kelvin = int.tryParse(inputValeurTemp);
+                      conversion();
+                    }
+                  });
+                },
+              ),
+            ),
+
+            // Text("Base C= $_celsius K=$_kelvin F=$_fahrenheit \n"
+            //     "Resultat c=$_celsiusR K=$_kelvinR F=$_fahrenheitR \n"
+            //     "Modification 1 = $modification1 \n"
+            //     "Modification 2 = $modification2 \n"),
           ],
         ),
       ),

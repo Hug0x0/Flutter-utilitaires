@@ -53,7 +53,15 @@ class _AudioState extends State<Audio> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AudioPlayer"),
+        backgroundColor: Colors.black,
+        title: Text(
+          "Lecteur de musique",
+          style: TextStyle(
+            fontFamily: 'Avenir',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
@@ -66,17 +74,18 @@ class _AudioState extends State<Audio> with TickerProviderStateMixin {
             SizedBox(
               height: 20.0,
             ),
-            Text(
-              "Blinding Light",
-              style: TextStyle(
-                fontSize: 20.0,
-              ),
-            ),
+            Text("Blinding Light",
+                style: TextStyle(
+                    fontFamily: 'Avenir',
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black)),
+            Text("The Weeknd"),
             SizedBox(
               height: 20.0,
             ),
             Slider(
-              activeColor: Colors.blue,
+              activeColor: Colors.black,
               inactiveColor: Colors.grey,
               value: _position.inSeconds.toDouble(),
               max: _duration.inSeconds.toDouble(),
@@ -89,11 +98,10 @@ class _AudioState extends State<Audio> with TickerProviderStateMixin {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              //padding: const EdgeInsets.all(20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text("${_position.inMinutes}" + " sec"),
+                  Text("${_position.inSeconds}" + " sec"),
                   Text("${_duration.inSeconds}" + " sec"),
                 ],
               ),
@@ -123,7 +131,7 @@ class _AudioState extends State<Audio> with TickerProviderStateMixin {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 2.5,
-                      color: Colors.blue,
+                      color: Colors.black,
                     ),
                     borderRadius: BorderRadius.all(
                       Radius.circular(50.0),

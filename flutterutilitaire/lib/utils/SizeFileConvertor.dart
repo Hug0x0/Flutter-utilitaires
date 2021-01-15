@@ -235,7 +235,15 @@ class _UtilFileState extends State<UtilFile2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Utilitaire 2"),
+        backgroundColor: Colors.black,
+        title: Text(
+          "Convertisseur de taille de fichier",
+          style: TextStyle(
+            fontFamily: 'Avenir',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
@@ -259,26 +267,38 @@ class _UtilFileState extends State<UtilFile2> {
             ].map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(value: value, child: Text(value));
             }).toList()),
-
+        SizedBox(height: 15),
         //Premier champs rempli
-        TextField(
-          controller: contenuPremierChamps,
-          obscureText: false,
-          decoration: InputDecoration(
+        Container(
+          //height: 50,
+          width: 250,
+          child: TextField(
+            controller: contenuPremierChamps,
+            decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
               border: OutlineInputBorder(),
               labelText: 'Valeur 1',
-              hintText: '$modifdeuxiemeValeur'),
-          onChanged: (valeurDuSecondChamps) {
-            setState(() {
-              premiereValeur = double.parse(valeurDuSecondChamps);
-              testdeuxiemeValeur();
-              if (contenuDeuxiemeChamps.text.isNotEmpty) {
-                contenuDeuxiemeChamps.clear();
-              }
-            });
-          },
+              labelStyle: TextStyle(color: Colors.black),
+              hintText: '$modifdeuxiemeValeur',
+              hintStyle: TextStyle(color: Colors.black),
+            ),
+            onChanged: (valeurDuSecondChamps) {
+              setState(() {
+                premiereValeur = double.parse(valeurDuSecondChamps);
+                testdeuxiemeValeur();
+                if (contenuDeuxiemeChamps.text.isNotEmpty) {
+                  contenuDeuxiemeChamps.clear();
+                }
+              });
+            },
+          ),
         ),
-
+        SizedBox(height: 47),
         // Deuxieme Type
         DropdownButton<String>(
             value: choixDuSecondType,
@@ -298,24 +318,36 @@ class _UtilFileState extends State<UtilFile2> {
             ].map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(value: value, child: Text(value));
             }).toList()),
-
+        SizedBox(height: 15),
         //Deuxième champs rempli
-        TextField(
-          controller: contenuDeuxiemeChamps,
-          obscureText: false,
-          decoration: InputDecoration(
+        Container(
+          width: 250,
+          child: TextField(
+            controller: contenuDeuxiemeChamps,
+            obscureText: false,
+            decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+              ),
               border: OutlineInputBorder(),
               labelText: 'Valeur 2',
-              hintText: '$modifpremiereValeur'),
-          onChanged: (valeurDuPremierChamps) {
-            setState(() {
-              deuxiemeValeur = double.parse(valeurDuPremierChamps);
-              testpremiereValeur();
-              if (contenuPremierChamps.text.isNotEmpty) {
-                contenuPremierChamps.clear();
-              }
-            });
-          },
+              labelStyle: TextStyle(color: Colors.black),
+              hintText: '$modifpremiereValeur',
+              hintStyle: TextStyle(color: Colors.black),
+            ),
+            onChanged: (valeurDuPremierChamps) {
+              setState(() {
+                deuxiemeValeur = double.parse(valeurDuPremierChamps);
+                testpremiereValeur();
+                if (contenuPremierChamps.text.isNotEmpty) {
+                  contenuPremierChamps.clear();
+                }
+              });
+            },
+          ),
         ),
       ])),
     );

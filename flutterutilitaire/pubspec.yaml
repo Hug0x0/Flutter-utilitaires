@@ -33,6 +33,7 @@ dependencies:
   string_converter: ^0.0.5
   age: ^0.0.1
   provider: ^4.3.2+4
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_test:

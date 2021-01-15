@@ -14,15 +14,22 @@ class _ConvertDistanceState extends State<ConvertDistance> {
   TextEditingController _controller2 = TextEditingController();
   //class convert
 
-  Convert _convert = new Convert();
+  Convert _convert = Convert();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text("Convert Aires page"),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text(
+          "Convertisseur de distance",
+          style: TextStyle(
+            fontFamily: 'Avenir',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.grey,
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 100, 10, 0),
@@ -38,18 +45,23 @@ class _ConvertDistanceState extends State<ConvertDistance> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Select Unit 1",
-                      style: TextStyle(backgroundColor: Colors.green),
+                      "Selectionner une unitée de distance",
+                      style: TextStyle(
+                        backgroundColor: Colors.transparent,
+                        fontFamily: 'Avenir',
+                        fontSize: 18.5,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     DropdownButton<String>(
                       value: dropdownValue,
-                      icon: Icon(Icons.arrow_downward, color: Colors.green),
+                      icon: Icon(Icons.arrow_downward, color: Colors.black),
                       iconSize: 30,
                       elevation: 16,
-                      style: TextStyle(color: Colors.green, fontSize: 25),
+                      style: TextStyle(color: Colors.black, fontSize: 25),
                       underline: Container(
                         height: 4,
-                        color: Colors.deepPurpleAccent,
+                        color: Colors.grey,
                       ),
                       onChanged: (String newValue) {
                         setState(() {
@@ -74,6 +86,19 @@ class _ConvertDistanceState extends State<ConvertDistance> {
                       }).toList(),
                     ),
                     TextField(
+                      decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        labelText: "Mesure",
+                        labelStyle: TextStyle(color: Colors.black),
+                      ),
                       controller: _controller,
                       onChanged: (value) {
                         setState(() {
@@ -284,18 +309,23 @@ class _ConvertDistanceState extends State<ConvertDistance> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Select Unit 2",
-                      style: TextStyle(backgroundColor: Colors.green),
+                      "Selectionner une unitée de distance",
+                      style: TextStyle(
+                        backgroundColor: Colors.transparent,
+                        fontFamily: 'Avenir',
+                        fontSize: 18.5,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     DropdownButton<String>(
                       value: dropdownValue2,
-                      icon: Icon(Icons.arrow_downward, color: Colors.green),
+                      icon: Icon(Icons.arrow_downward, color: Colors.black),
                       iconSize: 30,
                       elevation: 16,
-                      style: TextStyle(color: Colors.green, fontSize: 25),
+                      style: TextStyle(color: Colors.black, fontSize: 25),
                       underline: Container(
                         height: 4,
-                        color: Colors.deepPurpleAccent,
+                        color: Colors.grey,
                       ),
                       onChanged: (String newValue2) {
                         setState(() {
@@ -320,6 +350,19 @@ class _ConvertDistanceState extends State<ConvertDistance> {
                       }).toList(),
                     ),
                     TextField(
+                      decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        labelText: "Mesure",
+                        labelStyle: TextStyle(color: Colors.black),
+                      ),
                       controller: _controller2,
                       onChanged: (value2) {
                         setState(() {
